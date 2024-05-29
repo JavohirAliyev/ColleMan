@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34916.146
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColleMan", "ColleMan\ColleMan.csproj", "{40BFE4C2-D97A-48E3-B436-63304C724DBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40BFE4C2-D97A-48E3-B436-63304C724DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40BFE4C2-D97A-48E3-B436-63304C724DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40BFE4C2-D97A-48E3-B436-63304C724DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40BFE4C2-D97A-48E3-B436-63304C724DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEA156A4-7694-4419-AA9B-77257CCE5177}
+	EndGlobalSection
+EndGlobal
