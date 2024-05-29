@@ -11,7 +11,6 @@ namespace ColleMan.Data
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
         }
-
         DbSet<Collection> Collections { get; set; }
         DbSet<Comment> Comments { get; set; }
         DbSet<Item> Items { get; set; }
