@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>(options => 
 options.UseSqlServer(builder.Configuration.GetConnectionString("ColleManConnection")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>();
 builder.Services.AddRazorPages();
@@ -45,14 +45,14 @@ using (var scope = app.Services.CreateScope())
 
 using (var scope = app.Services.CreateScope())
 {
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
     string email = "admin@admin.com";
     string password = "Test=666";
 
     if (await userManager.FindByEmailAsync(email) == null)
     {
-        var user = new IdentityUser
+        var user = new ApplicationUser
         {
             Email = email,
             UserName = email

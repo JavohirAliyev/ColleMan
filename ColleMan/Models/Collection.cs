@@ -9,7 +9,7 @@ namespace ColleMan.Models
         public string Description { get; set; }
         public Category Category { get; set; }
         public string? ImageUrl { get; set; }
-        public IdentityUser User { get; set; }
+        public ApplicationUser User { get; set; }
         public ICollection<Item>? Items { get; set; }
         //public bool custom_string1_state { get; set; }
         //public string? custom_string1_name { get; set; }

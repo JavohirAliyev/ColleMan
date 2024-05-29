@@ -6,7 +6,7 @@ namespace ColleMan.Models
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public IdentityUser User { get; set; }
+        public ApplicationUser User { get; set; }
         public DateTime DateCreated { get; set; }
         public Item Item { get; set; }
 

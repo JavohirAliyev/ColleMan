@@ -6,7 +6,7 @@ using System.Data.Common;
 
 namespace ColleMan.Data
 {
-    public class DatabaseContext : IdentityDbContext<IdentityUser>
+    public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
