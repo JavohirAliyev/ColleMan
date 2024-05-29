@@ -1,7 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\views\\user\\mycollections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\views\\user\\mycollections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\views\\user\\createcollection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\views\\user\\createcollection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Migrations\\20240529191235_collectionCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ColleMan\\Migrations\\20240529191235_collectionCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|c:\\users\\user\\desktop\\colleman\\colleman\\colleman\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{40BFE4C2-D97A-48E3-B436-63304C724DBC}|ColleMan\\ColleMan.csproj|solutionrelative:colleman\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +55,97 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ColleMan\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "ColleMan\\Models\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T19:15:06.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20240529191235_collectionCreate.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Migrations\\20240529191235_collectionCreate.cs",
+              "RelativeDocumentMoniker": "ColleMan\\Migrations\\20240529191235_collectionCreate.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Migrations\\20240529191235_collectionCreate.cs",
+              "RelativeToolTip": "ColleMan\\Migrations\\20240529191235_collectionCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T19:12:35.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Program.cs",
+              "RelativeDocumentMoniker": "ColleMan\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Program.cs",
+              "RelativeToolTip": "ColleMan\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T18:50:00.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateCollection.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\User\\CreateCollection.cshtml",
+              "RelativeDocumentMoniker": "ColleMan\\Views\\User\\CreateCollection.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\User\\CreateCollection.cshtml",
+              "RelativeToolTip": "ColleMan\\Views\\User\\CreateCollection.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T18:46:12.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ColleMan\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ColleMan\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAkwEIAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T18:40:19.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ColleMan\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ColleMan\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAEcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T18:38:54.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyCollections.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\User\\MyCollections.cshtml",
+              "RelativeDocumentMoniker": "ColleMan\\Views\\User\\MyCollections.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\Views\\User\\MyCollections.cshtml",
+              "RelativeToolTip": "ColleMan\\Views\\User\\MyCollections.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-29T15:17:02.859Z",
+              "EditorCaption": ""
             }
           ]
         }

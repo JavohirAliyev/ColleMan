@@ -285,3 +285,13 @@ C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\obj\Debug\net8.0\ColleMan.sourc
 C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\obj\Debug\net8.0\ColleMan.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\copper-depot-424816-q0-009b2888c37a.json
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Api.Gax.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Api.Gax.Rest.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Apis.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Apis.Auth.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Apis.Core.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Apis.Storage.v1.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\Google.Cloud.Storage.V1.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\System.Management.dll
+C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Management.dll

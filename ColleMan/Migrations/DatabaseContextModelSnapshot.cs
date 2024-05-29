@@ -41,8 +41,8 @@ namespace ColleMan.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsBlocked")
-                        .HasColumnType("bit");
+                    b.Property<int>("IsBlocked")
+                        .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");

@@ -1,0 +1,265 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> userManager
+@model List<ColleMan.Models.ApplicationUser>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6" id="buttons">
+                        <h2>Manage Users</h2>
+                    </div>
+                    <div class="col-sm-4.5">
+                        <a href="#" class="btn btn-primary" onclick="sendToUnblock()">
+                            <i class="material-icons">&#xE14B;</i><span> Unblock</span>
+                        </a>
+                        <a href="#" class="btn btn-danger" onclick="sendToBlock()">
+                            <i class="material-icons">&#xE14B;</i><span> Block</span>
+                        </a>
+                        <a href="#" class="btn btn-primary" onclick="sendToPromote()">
+                            <i class="material-icons">&#xe5d8;</i><span> Promote</span>
+                        </a>
+                        <a href="#" class="btn btn-danger" onclick="sendToDemote()">
+                            <i class="material-icons">&#xe5db;</i><span> Demote</span>
+                        </a>
+                        <a href="#" class="btn btn-danger" onclick="sendToDelete()">
+                            <i class="material-icons">&#xE872;</i><span> Delete</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="form-checkbox">
+                                <input class="form-check-input" type="checkbox" id="selectAll">
+                                <label class="form-check-label" for="selectAll"></label>
+                            </span>
+                        </th>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Collections(pcs.)</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Collections</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input userCheckBox" type="checkbox" value="@user.Id">
+                                    <label class="form-check-label" for="userCheckBox"></label>
+                                </div>
+                            </td>
+                            <td>@user.Id</td>
+                            <td>@user.Email</td>
+                            <td>@(user.Collections?.Count() ?? 0)</td>
+                            <td>@((await userManager.GetRolesAsync(user)).Last())</td>
+                            <td>@user.IsBlocked</td>
+                            <td>
+                                <a href="#" class="btn btn-warning btn-sm d-flex justify-content-around" data-toggle="modal">
+                                    <i class="material-icons">&#xe8f4;</i>
+                                    <span>View</span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    var selectedUsers = [];
+
+    function sendToBlock() {
+        var jsonString = JSON.stringify(selectedUsers);
+        $.ajax({
+            url: "Block",
+            type: 'POST',
+            data: { userIds: jsonString },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Users have been blocked successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'There was a problem with unblocking the users',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
+    function sendToUnblock() {
+        var jsonString = JSON.stringify(selectedUsers);
+        $.ajax({
+            url: "Unblock",
+            type: 'POST',
+            data: { userIds: jsonString },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Users have been unblocked successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'There was a problem with unblocking the users',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
+    function sendToDelete() {
+        var jsonString = JSON.stringify(selectedUsers);
+        $.ajax({
+            url: "Delete",
+            type: 'POST',
+            data: { userIds: jsonString },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Users have been deleted successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'There was a problem with deleting the users',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
+    function sendToPromote() {
+        var jsonString = JSON.stringify(selectedUsers);
+        $.ajax({
+            url: "Promote",
+            type: 'POST',
+            data: { userIds: jsonString },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Users have been promoted successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'There was a problem with deleting the users',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
+    function sendToDemote() {
+        var jsonString = JSON.stringify(selectedUsers);
+        $.ajax({
+            url: "Demote",
+            type: 'POST',
+            data: { userIds: jsonString },
+            success: function (response) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Users have been demoted successfully!',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    window.location.reload();
+                });
+            },
+            error: function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'There was a problem with deleting the users',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
+    var checkboxes = document.querySelectorAll('.userCheckBox');
+    checkboxes.forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                selectedUsers.push(this.value);
+                console.log("selected");
+            } else {
+                console.log("deselected");
+                var index = selectedUsers.indexOf(this.value);
+                if (index !== -1) {
+                    selectedUsers.splice(index, 1);
+                }
+            }
+        });
+    });
+
+    $(document).ready(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Select/Deselect checkboxes
+        var checkbox = $('table tbody input[type="checkbox"]');
+        $("#selectAll").click(function () {
+            if (this.checked) {
+                checkbox.each(function () {
+                    this.checked = true;
+                    selectedUsers.push(this.value);
+                });
+            } else {
+                checkbox.each(function () {
+                    this.checked = false;
+                    var index = selectedUsers.indexOf(this.value);
+                    if (index !== -1) {
+                        selectedUsers.splice(index, 1);
+                    }
+
+                });
+            }
+        });
+
+        // Update SelectAll checkbox based on individual checkboxes
+        checkbox.click(function () {
+            if (!this.checked) {
+                $("#selectAll").prop("checked", false);
+            } else if (checkbox.filter(':checked').length === checkbox.length) {
+                $('#selectAll').prop("checked", true);
+            }
+        });
+    });
+</script>

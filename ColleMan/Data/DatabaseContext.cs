@@ -11,10 +11,11 @@ namespace ColleMan.Data
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
         }
-        DbSet<Collection> Collections { get; set; }
-        DbSet<Comment> Comments { get; set; }
-        DbSet<Item> Items { get; set; }
-        DbSet<Like> Likes { get; set; }
-        DbSet<Tag> Tags { get; set; }
+        public DbSet<Collection> Collections { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<ApplicationUser> UsersDb {  get; set; }
     }
 }

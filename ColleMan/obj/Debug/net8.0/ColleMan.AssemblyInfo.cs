@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1b8647af405c1986c062fcb9a020bbdcdfebce5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f76ef63271ce1f0d7e5d90b96a58408c7411eb8f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

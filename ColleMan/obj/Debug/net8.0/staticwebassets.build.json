@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HlGAKQw2iZeW6lDL1oeJ0fPZl/nKUMEdn6ooE+R/CBk=",
+  "Hash": "N8LTcdNZyciHmzSi4JcSo9sIMhb/Vf12QVm0D/DrEQ4=",
   "Source": "ColleMan",
   "BasePath": "_content/ColleMan",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\wwwroot\\js\\popper-min.js",
+      "SourceId": "ColleMan",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\wwwroot\\",
+      "BasePath": "_content/ColleMan",
+      "RelativePath": "js/popper-min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\popper-min.js"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\wwwroot\\js\\site.js",

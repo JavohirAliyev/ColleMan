@@ -7,6 +7,11 @@ namespace ColleMan.Models
         public ICollection<Collection>? Collections { get; set; }
         public ICollection<Comment>? Comments { get; set; }
         public ICollection<Like>? Likes { get; set; }
-        public bool IsBlocked { get; set; } = false;
+        public Status IsBlocked { get; set; }
+    }
+    public enum Status
+    {
+        Active,
+        Blocked
     }
 }

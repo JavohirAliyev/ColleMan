@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ColleMan.Models
 {
@@ -8,7 +10,10 @@ namespace ColleMan.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public Category Category { get; set; }
+        [DataType(DataType.ImageUrl)]
         public string? ImageUrl { get; set; }
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
         public ApplicationUser User { get; set; }
         public ICollection<Item>? Items { get; set; }
         //public bool custom_string1_state { get; set; }

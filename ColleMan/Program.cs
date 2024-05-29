@@ -1,4 +1,5 @@
 using ColleMan.Data;
+using ColleMan.Interfaces;
 using ColleMan.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<ICloud, GoogleCloud>();
 
 var app = builder.Build();
 
