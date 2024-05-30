@@ -1,0 +1,113 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model List<ColleMan.Models.Collection>
+@inject UserManager<ApplicationUser> userManager
+@{
+    int i = 1;
+}
+<h2>Collections</h2>
+@if (ViewData.ModelState.IsValid == false)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <span>@error.ErrorMessage</span>
+        }
+    </div>
+}
+<div class="mb-3 ">
+    @if ((await userManager.GetUserAsync(User)).Id == Model.Last().User.Id)
+    {
+        <a asp-action="CreateCollection" asp-controller="User" class="btn btn-success">
+            <i class="material-icons me-1">&#xe147;</i>
+            <span>Create New</span>
+        </a>
+    }
+    else if (User.IsInRole("Admin"))
+    {
+        <a asp-action="CreateCollectionForOtherUser" asp-controller="Admin" asp-route-id="@Model.Last().User.Id" class="btn btn-success">
+            <i class="material-icons me-1">&#xe147;</i>
+            <span>Create New</span>
+        </a>
+    }
+   
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">User</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var collection in Model)
+            {
+                <tr>
+                    <td>@(i++)</td>
+                    @if (collection.ImageUrl is not null)
+                    {
+                        <td><img src="@Url.Content(collection.ImageUrl)" alt="Collection Cover" class="img-thumbnail" style="max-width: 100px; max-height: 100px;" /></td>
+                    }
+                    else
+                    {
+                        <td>No Image</td>
+                    }
+                    <td>@collection.Name</td>
+                    <td>@collection.Description</td>
+                    <td>@collection.Category</td>
+                    <td>@collection.User.UserName</td>
+                    <td>
+                        @if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == collection.User.Id)
+                        {
+                            <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                            <a asp-action="EditCollection" asp-route-id="@collection.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
+                            <form asp-action="DeleteCollection" asp-route-id="@collection.Id" method="post" class="d-inline delete-btn">
+                                <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+                            </form>
+                        }
+                        else if (!User.Identity.IsAuthenticated || (await userManager.GetUserAsync(User)).Id != collection.User.Id)
+                        {
+                            <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.delete-btn').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire(
+                        'Cancelled',
+                        'Your collection is safe :)',
+                        'error'
+                    );
+                }
+            });
+        });
+    });
+</script>

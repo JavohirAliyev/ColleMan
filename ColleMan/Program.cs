@@ -2,6 +2,7 @@ using ColleMan.Data;
 using ColleMan.Interfaces;
 using ColleMan.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.CSharp.RuntimeBinder;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

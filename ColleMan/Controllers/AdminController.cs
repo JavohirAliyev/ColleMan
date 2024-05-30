@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace ColleMan.Controllers
 {
     public class AdminController : Controller
     {
+        private static string userIdFor;
         private readonly UserManager<ApplicationUser> _userManager;
         public AdminController(UserManager<ApplicationUser> userManager)
         {
@@ -116,6 +118,49 @@ namespace ColleMan.Controllers
                 }
             }
             return RedirectToAction("AdminPanel", "Admin");
+        }
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateCollectionForOtherUser(string userId)
+        {
+            if (!String.IsNullOrEmpty(userId))
+            {
+                userIdFor = userId;
+                return RedirectToAction();
+            } else
+            {
+                ModelState.AddModelError("Null User Id", "An unexpected error has occured");
+                return RedirectToAction();
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateItemForOtherUser(string userId)
+        {
+            if (!String.IsNullOrEmpty(userId))
+            {
+                userIdFor = userId;
+                return RedirectToAction();
+            }
+            else
+            {
+                ModelState.AddModelError("Null User Id", "An unexoected error has occured");
+                return RedirectToAction();
+            }
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateCollectionForOtherUser(CreateCollectionViewModel ccvm, string userId)
+        {
+            return RedirectToAction();
+        }
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateItemForOtherUser(CreateItemViewModel civm, string userId)
+        {
+            return RedirectToAction();
         }
 
     }

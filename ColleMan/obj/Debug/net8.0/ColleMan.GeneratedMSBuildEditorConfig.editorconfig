@@ -22,7 +22,7 @@ build_property.EnableComHosting =
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan
 build_property._RazorSourceGeneratorDebug = 
 
@@ -78,12 +78,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVDb2xsZWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/CreateItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/EditCollection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0Q29sbGVjdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/MyCollections.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxNeUNvbGxlY3Rpb25zLmNzaHRtbA==
+[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/GetCollections.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRDb2xsZWN0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/GetItems.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRJdGVtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/_ViewImports.cshtml]

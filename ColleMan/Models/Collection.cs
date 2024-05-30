@@ -15,7 +15,7 @@ namespace ColleMan.Models
         [NotMapped]
         public IFormFile? ImageFile { get; set; }
         public ApplicationUser User { get; set; }
-        public ICollection<Item>? Items { get; set; }
+        public List<Item> Items { get; set; }
         //public bool custom_string1_state { get; set; }
         //public string? custom_string1_name { get; set; }
         //public bool custom_string2_state { get; set; }

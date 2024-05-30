@@ -16,9 +16,9 @@ namespace ColleMan.Models
             storageClient = StorageClient.Create(googleCredential);
             bucket = configuration.GetValue<string>("GoogleCloudStorageBucket");
         }
-        public async Task DeleteImageAsync(string imageName)
+        public async Task DeleteImageAsync(string imageUrl)
         {
-            await storageClient.DeleteObjectAsync(bucket, imageName);
+            await storageClient.DeleteObjectAsync(bucket, imageUrl);
         }
 
         public async Task<string> UploadImageAsync(IFormFile image, string imageName)

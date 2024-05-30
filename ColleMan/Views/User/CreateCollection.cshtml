@@ -11,6 +11,15 @@
                 <div class="card-header bg-primary text-white">
                     <h2 class="mb-0">Create Collection</h2>
                 </div>
+                @if (ViewData.ModelState.IsValid == false)
+                {
+                    <div class="alert alert-danger">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <span>@error.ErrorMessage</span>
+                        }
+                    </div>
+                }
                 <div class="card-body">
                     <form asp-action="CreateCollection" method="post" enctype="multipart/form-data">
                         <div class="form-group mb-3">

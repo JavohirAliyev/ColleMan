@@ -208,18 +208,28 @@ namespace ColleMan.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int?>("ItemId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ItemId");
-
                     b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("ItemTag", b =>
+                {
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagsID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ItemId", "TagsID");
+
+                    b.HasIndex("TagsID");
+
+                    b.ToTable("ItemTag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -413,11 +423,19 @@ namespace ColleMan.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ColleMan.Models.Tag", b =>
+            modelBuilder.Entity("ItemTag", b =>
                 {
                     b.HasOne("ColleMan.Models.Item", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("ItemId");
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ColleMan.Models.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -490,8 +508,6 @@ namespace ColleMan.Migrations
                     b.Navigation("Comments");
 
                     b.Navigation("Likes");
-
-                    b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618
         }

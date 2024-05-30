@@ -4,15 +4,38 @@
     ViewData["Title"] = "Edit Collection";
 }
 
+@{
+    var errorsToExclude = new List<string>
+    {
+        "The User field is required.",
+        "The Items field is required."
+    };
+}
+
+@if (ViewData.ModelState.IsValid == false)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            if (!errorsToExclude.Contains(error.ErrorMessage))
+            {
+                <span>@error.ErrorMessage</span>
+                <br />
+            }
+        }
+    </div>
+}
+
+
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8 col-md-10 col-sm-12">
             <div class="card shadow-sm">
                 <div class="card-header bg-warning text-white">
                     <h2 class="mb-0">Edit Collection</h2>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <form asp-action="EditCollection" method="post" enctype="multipart/form-data">
                         <div class="form-group mb-3">
                             <label asp-for="Name" class="control-label"></label>
                             <input asp-for="Name" class="form-control" placeholder="Enter collection name" />
@@ -35,7 +58,7 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-warning">Save Changes</button>
-                            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                            <a asp-action="GetCollections" asp-route-id="@Model.User.Id" class="btn btn-secondary">Cancel</a>
                         </div>
                     </form>
                 </div>
