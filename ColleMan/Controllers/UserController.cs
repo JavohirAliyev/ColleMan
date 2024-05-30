@@ -177,8 +177,7 @@ namespace ColleMan.Controllers
             var coll = _dbContext.Collections
                 .Include(_ => _.User)
                 .FirstOrDefault(c => c.Id == collId);
-            List<Item> items = _dbContext.Items.Where(x => x.Collection.Id == collId).ToList();
-            return View(items);
+            return View(coll);
         }
 
         [Authorize]
@@ -207,16 +206,18 @@ namespace ColleMan.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> CreateItem(string collectionId)
+        public async Task<IActionResult> CreateItem()
         {
-            Collection col = await _dbContext.Collections.FindAsync(collectionId);
-            return View(col);
+            return View();
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> CreateItem(string collectionId, CreateItemViewModel civm)
+        [Route("User/CreateItem/{collectionId}")]
+        public async Task<IActionResult> CreateItem(int collectionId, CreateItemViewModel civm)
         {
-            Collection? col = await _dbContext.Collections.FindAsync(collectionId);
+            Collection? col = await _dbContext.Collections
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(x => x.Id == collectionId);
             ApplicationUser collectionOwner = col.User;
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
             if (col == null)
@@ -244,7 +245,7 @@ namespace ColleMan.Controllers
                     await _dbContext.Items.AddAsync(item);
                     _dbContext.SaveChanges();
                     await _userManager.UpdateAsync(await _userManager.GetUserAsync(User));
-                    return RedirectToAction($"GetItems/{col.Id}", "User");
+                    return RedirectToAction("GetItems", "User", new {col.Id});
                 }
             }
             else

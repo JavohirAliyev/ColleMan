@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DatabaseContext>(options => 
-options.UseSqlServer(builder.Configuration.GetConnectionString("ColleManConnection")));
+options.UseSqlServer(builder.Configuration.GetConnectionString("ColleManDbConnection")));
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<DatabaseContext>();

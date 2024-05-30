@@ -1,22 +1,24 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model List<ColleMan.Models.Collection>
+@using ColleMan.Data
+@model ColleMan.Models.Collection
 @inject UserManager<ApplicationUser> userManager
+@inject DatabaseContext _dbContext
+
 @{
     int i = 1;
 }
 <h2>Items</h2>
 <div class="mb-3 ">
-   @*  @if ((await userManager.GetUserAsync(User)).Id == Model.Collection.User.Id)
+    @if ((await userManager.GetUserAsync(User)).Id == Model.User.Id)
     {
         <a asp-action="CreateItem" asp-controller="User" class="btn btn-success">
             <i class="material-icons me-1">&#xe147;</i>
             <span>Create New</span>
         </a>
     }
-    else *@
-    @if (User.IsInRole("Admin"))
+    else if (User.IsInRole("Admin"))
     {
-        <a asp-action="CreateItemForOtherUser" asp-controller="Admin" asp-route-id="@Model.Last().Collection.User.Id" class="btn btn-success">
+        <a asp-action="CreateItemForOtherUser" asp-controller="Admin" asp-route-id="@Model.User.Id" class="btn btn-success">
             <i class="material-icons me-1">&#xe147;</i>
             <span>Create New</span>
         </a>
@@ -34,36 +36,41 @@
                 <th scope="col">Details</th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@(i++)</td>
-                    <td>@item.Name</td>
-                    <td>
-                        @foreach (var tag in item.Tags)
-                        {
-                            @tag
-                        }
-                    </td>
-                    <td>@item.DateCreated</td>
-                    <td>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
-                        }
-                        else if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == item.Collection.User?.Id)
-                        {
-                            <a asp-action="EditItem" asp-route-id="@item.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
-                            <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
-                            <form asp-action="DeleteItem" asp-route-id="@item.Id" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-                            </form>
-                        }
-                    </td>
-                </tr>
-            }
-        </tbody>
+        @if (Model.Items != null)
+        {
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@item.Name</td>
+                        <td class="flex-row">
+                            @foreach (var tag in item.Tags)
+                            {
+                                <span class="badge badge-secondary text-dark m-1">
+                                    @tag
+                                </span>
+                            }
+                        </td>
+                        <td>@item.DateCreated</td>
+                        <td>
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                            }
+                            else if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == item.Collection.User?.Id)
+                            {
+                                <a asp-action="EditItem" asp-route-id="@item.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
+                                <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                                <form asp-action="DeleteItem" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        }
     </table>
 </div>
 

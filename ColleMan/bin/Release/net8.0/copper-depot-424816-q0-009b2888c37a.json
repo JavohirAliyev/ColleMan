@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "copper-depot-424816-q0",
+  "private_key_id": "009b2888c37a11edc673385b82ba961ef2693de5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDQxAQ5YThX4Cv\ntSpiPOnicRBFjCEScR+G16NZIML7tI02HWulUZsDJXjgDSFx22gz9z3onPaLRrtg\naItDdKUUoAwJvZiQjC5p38Qn8A2JEqtQpggSjCmGl1aM4igBi+c3oW+bUwXJscFW\nnGFvL87qTJT2OzVXa+pIVbxQZbLrzoXC7l3ZtzhrW7I6dPPUN5Bk6kaPl5oNjiej\nY5yl5SJSbuLW+pjOQ/sC/SJF7mGuiRMZIbvubZFAQg0FqCpOn58B5Dab/Kfs4oh4\nySoFjRkq8/Do+G8/we8Az+bj2brfgQo13b5QSelcxOZRFF+IP8nK1vbAh3bty3L3\nGqGdOjrhAgMBAAECggEAA/8z7XydPzXCvxYAw5kGmpWA5UOMi8GYCR0R4WmrxBY6\ni8CHaw9kEmjqc/+gzyFUHTgy4rePzmMIw9zv+NYC6QyromlonZDZBF7Jt52Q0Vz5\n98EmSibnVLN1WJXqhrmT5o4d6DqHVE0YrYqu7eU3IZGmvPGSUnNJjOiAXc7vHieH\naxwNMclKSN9bRmGy77C3aEg7VOKSq/GeWT5hgbtDmgsMOioGqeBIyhCCFcMDYx0s\nt2DZcWG0NOUsAFuHKwEr7JHl6qVphBR6CmSx6Z2kFfkC91IeokO3hIVfxW0DNfC/\nXMybS7/qSaTiDQ90LNdcd2Kj7L/aJLpWY/p5T9HJdwKBgQDhrFIdoy6/VGeso7Al\njIrdA7F5yDn591hlkDoaI2++PWKv78YIVFt9H5RziNnHPpEZjIzatp1uuMgkDGJW\nrHd7+Y0XZuX2Yz6zCon1BEpB/9XV4b7IL4Cb5T/Kte4MpHrNow6fOBrxN+maCqgy\nLaFRX3ump7xfNB/A3uE9oaX7FwKBgQDdgIcCs29de8fQ+DFsZ5wUau1+zUy52IQi\nR7E9Bo61OOU3upkR4N8cBVHx9H+JJJQbaVxVGpZ8rZH5eZniCPMx3w8uXrj26AHj\n9WfkIO3JaCo8K18QbKVcmpTrpqmgf+whXwEZ38CpajDxpB6nntWP2DScQm/lVKEU\n+vUc8APUxwKBgGkJ9A6nbZLQjpDkf5B6ogfNOEYe1B1s61AamXChHdnGaLDLQbmO\nyiarFEXSZMtAa/kgWk9SwGRQzZc5zGvbSqIBvZIu6sqL1xsuxJeur4GYuscak9pJ\ngesOAWsw0uQ/iok8ZAnn62JrS+fPHgp9AqEFeGBRonQNptn244/0NXVxAoGAL3E4\n+a4fG0HI4YxXYaWre4APkEo+tcuXOZRrdOuzo0MlbVNNN9QXVXQaQh2hN2mbQ2fE\nvAGu29N9YZbXC9/o3vSs1ry5F0FILmBAuU8IP0xNR4fum6D5piUB4ptW16aul9M2\ndClFpcO16fvCCRrvGRkw44sjVlZTDiBWYbVSzL8CgYEAgcNpnjqLif/TpypKPOOC\nj2ckUMkiaseSo08W0cVnu4jiJa/hfGQ1yQhJsnL0NAdkZnghLhk6xSJBahcSklmd\nhhbZI354VhyoCJmaD3tBURWgGzZNMjHyzd6k69kRgW6+EMKGuvM/uhPZh1Nr0RbI\n4GlhPLOj/O6XF3vy+KgiIwc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "javohir@copper-depot-424816-q0.iam.gserviceaccount.com",
+  "client_id": "106245995457875652129",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/javohir%40copper-depot-424816-q0.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

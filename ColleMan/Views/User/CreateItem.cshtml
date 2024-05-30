@@ -1,5 +1,6 @@
-﻿@model ColleMan.Models.CreateItemViewModel
-
+﻿@using ColleMan.Data
+@model ColleMan.Models.CreateItemViewModel
+@inject DatabaseContext _dbcontext
 @{
     ViewData["Title"] = "Create Item";
 }
@@ -12,7 +13,7 @@
                     <h2 class="mb-0">Create Item</h2>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create" method="post">
+                    <form asp-action="CreateItem" method="post">
                         <div class="form-group mb-3">
                             <label asp-for="Name" class="control-label">Name</label>
                             <input asp-for="Name" class="form-control" />
@@ -31,26 +32,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts {
-    <script>
-        $(document).ready(function () {
-            $("#tagInput").on({
-                focusout: function () {
-                    var txt = this.value.replace(/[^a-z]/ig, '');
-                    if (txt) {
-                        $("<span/>", {
-                            text: txt.toLowerCase(),
-                            class: "badge bg-primary m-1",
-                            click: function () { $(this).remove(); }
-                        }).insertBefore(this);
-                        this.value = "";
-                    }
-                },
-                keyup: function (ev) {
-                    if (/(,|Enter)/.test(ev.key)) $(this).focusout();
-                }
-            });
-        });
-    </script>
-}
