@@ -15,6 +15,9 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddEntityFrameworkStores<DatabaseContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<ICloud, GoogleCloud>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
+
 
 var app = builder.Build();
 
@@ -23,7 +26,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

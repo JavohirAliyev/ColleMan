@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1909536130a08d0fc90de5aefee88ae8ac04d516")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+512933218bddc179129be4d1c26d5cb64769a64f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ColleMan")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

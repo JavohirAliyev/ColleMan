@@ -5,6 +5,8 @@
     ViewData["Title"] = "Create Item";
 }
 
+
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,6 +14,16 @@
                 <div class="card-header bg-primary text-white">
                     <h2 class="mb-0">Create Item</h2>
                 </div>
+                @if (ViewData.ModelState.IsValid == false)
+                {
+                    <div class="alert alert-danger">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <span>@error.ErrorMessage</span>
+                            <br />
+                        }
+                    </div>
+                }
                 <div class="card-body">
                     <form asp-action="CreateItem" method="post">
                         <div class="form-group mb-3">
@@ -20,9 +32,10 @@
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
-                            <label>Tags</label>
+                            <label asp-for="Tags">Tags</label>
                             <div id="tags" class="border rounded p-2">
                                 <input type="text" id="tagInput" class="form-control" placeholder="Add a tag" />
+                                <input type="hidden" asp-for="Tags" name="Tags" id="hiddenTags">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Create</button>
@@ -32,3 +45,38 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#tagInput").on({
+                focusout: function () {
+                    var txt = this.value.replace(/[^a-z]/ig, '');
+                    if (txt) {
+                        $("<span/>", {
+                            text: txt.toLowerCase(),
+                            class: "badge bg-primary m-1",
+                            click: function () { $(this).remove(); updateHiddenInput(); }
+                        }).insertBefore(this);
+                        this.value = "";
+                        updateHiddenInput();
+                    }
+                },
+                keyup: function (ev) {
+                    if (/(,|Enter)/.test(ev.key)) $(this).focusout();
+                }
+            });
+            $("#tagForm").on('submit', function () {
+                updateHiddenInput();
+            });
+
+            function updateHiddenInput() {
+                var tags = [];
+                $("#tagInput").siblings("span").each(function () {
+                    tags.push($(this).text());
+                });
+                $("#hiddenTags").val(tags.join(","));
+            }
+        });
+    </script>
+}

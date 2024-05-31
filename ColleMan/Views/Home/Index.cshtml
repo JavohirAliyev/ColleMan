@@ -2,4 +2,86 @@
     ViewData["Title"] = "ColleMan";
 }
 
+@model ColleMan.Models.HomeViewModel
 
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Welcome to ColleMan</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2 class="mb-3">5 Recently Added Items</h2>
+            @if (Model.RecentItems != null && Model.RecentItems.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var item in Model.RecentItems)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a asp-action="GetItem" asp-controller="User" asp-route-id="@item.Id" class="text-decoration-none">@item.Name</a>
+                            <span class="badge bg-primary rounded-pill">@item.DateCreated.ToString("yyyy-MM-dd")</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="alert alert-warning">No recent items found.</div>
+            }
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="mb-3">5 Largest Collections</h2>
+            @if (Model.LargestCollections != null && Model.LargestCollections.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var collection in Model.LargestCollections)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="text-decoration-none">@collection.Name</a>
+                            <span class="badge bg-success rounded-pill">Items: @collection.Items.Count</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <div class="alert alert-warning">No large collections found.</div>
+            }
+        </div>
+    </div>
+
+    <h2 class="mb-3">Tag Cloud</h2>
+    @if (Model.AllTags != null && Model.AllTags.Any())
+    {
+        <div class="tag-cloud">
+            @foreach (var tag in Model.AllTags)
+            {
+                <span class="badge bg-secondary text-dark m-1">@tag</span>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">No tags found.</div>
+    }
+</div>
+
+<style>
+    .tag-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+        .tag-cloud .badge {
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+        }
+
+    a.text-decoration-none {
+        color: inherit;
+    }
+
+        a.text-decoration-none:hover {
+            text-decoration: underline;
+        }
+</style>

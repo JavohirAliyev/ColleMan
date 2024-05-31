@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@model List<ColleMan.Models.Collection>
+@model ColleMan.Models.ApplicationUser
 @inject UserManager<ApplicationUser> userManager
 @{
     int i = 1;
@@ -15,7 +15,7 @@
     </div>
 }
 <div class="mb-3 ">
-    @if ((await userManager.GetUserAsync(User)).Id == Model.Last().User.Id)
+    @if ((await userManager.GetUserAsync(User)).Id == Model.Id)
     {
         <a asp-action="CreateCollection" asp-controller="User" class="btn btn-success">
             <i class="material-icons me-1">&#xe147;</i>
@@ -24,7 +24,7 @@
     }
     else if (User.IsInRole("Admin"))
     {
-        <a asp-action="CreateCollectionForOtherUser" asp-controller="Admin" asp-route-id="@Model.Last().User.Id" class="btn btn-success">
+        <a asp-action="CreateCollectionForOtherUser" asp-controller="Admin" asp-route-id="@Model.Id" class="btn btn-success">
             <i class="material-icons me-1">&#xe147;</i>
             <span>Create New</span>
         </a>
@@ -46,37 +46,40 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var collection in Model)
+            @if (Model.Collections != null)
             {
-                <tr>
-                    <td>@(i++)</td>
-                    @if (collection.ImageUrl is not null)
-                    {
-                        <td><img src="@Url.Content(collection.ImageUrl)" alt="Collection Cover" class="img-thumbnail" style="max-width: 100px; max-height: 100px;" /></td>
-                    }
-                    else
-                    {
-                        <td>No Image</td>
-                    }
-                    <td>@collection.Name</td>
-                    <td>@collection.Description</td>
-                    <td>@collection.Category</td>
-                    <td>@collection.User.UserName</td>
-                    <td>
-                        @if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == collection.User.Id)
+                @foreach (var collection in Model.Collections)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        @if (collection.ImageUrl is not null)
                         {
-                            <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
-                            <a asp-action="EditCollection" asp-route-id="@collection.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
-                            <form asp-action="DeleteCollection" asp-route-id="@collection.Id" method="post" class="d-inline delete-btn">
-                                <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
-                            </form>
+                            <td><img src="@Url.Content(collection.ImageUrl)" alt="Collection Cover" class="img-thumbnail" style="max-width: 100px; max-height: 100px;" /></td>
                         }
-                        else if (!User.Identity.IsAuthenticated || (await userManager.GetUserAsync(User)).Id != collection.User.Id)
+                        else
                         {
-                            <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                            <td>No Image</td>
                         }
-                    </td>
-                </tr>
+                        <td>@collection.Name</td>
+                        <td>@collection.Description</td>
+                        <td>@collection.Category</td>
+                        <td>@collection.User.UserName</td>
+                        <td>
+                            @if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == collection.User.Id)
+                            {
+                                <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                                <a asp-action="EditCollection" asp-route-id="@collection.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
+                                <form asp-action="DeleteCollection" asp-route-id="@collection.Id" method="post" class="d-inline delete-btn">
+                                    <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                </form>
+                            }
+                            else if (!User.Identity.IsAuthenticated || (await userManager.GetUserAsync(User)).Id != collection.User.Id)
+                            {
+                                <a asp-action="GetItems" asp-controller="User" asp-route-id="@collection.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                            }
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>

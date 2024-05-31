@@ -1,0 +1,101 @@
+﻿@model ColleMan.Models.ItemViewModel
+@using ColleMan.Data
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> _userManager
+@inject DatabaseContext _dbContext
+@{
+    async Task LikeItem()
+    {
+        var currentUser = await _userManager.GetUserAsync(User);
+        var likedLikes = _dbContext.Likes.Where((x => x.Item.Id == Model.Id));
+        if (likedLikes.Any(x => x.User.Email == currentUser.Email) != null)
+        {
+            Model.LikeCount--;
+            _dbContext.SaveChanges();
+        }
+        Model.LikeCount++;
+        _dbContext.SaveChanges();
+    }
+}
+
+<div class="container my-5">
+    <h1 class="display-4 mb-4 text-center">@Model.Name</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-6 mb-4">
+            <h3 class="h4">Details</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text"><strong>Date Created:</strong> @Model.DateCreated.ToString("yyyy-MM-dd")</p>
+                    <p class="card-text"><strong>Likes:</strong> @Model.LikeCount</p>
+                    <a onclick="@LikeItem" class="btn btn-primary btn-sm me-1 mb-1">Like</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h3 class="h4">Tags</h3>
+            @if (Model.Tags != null && Model.Tags.Any())
+            {
+                <div class="card">
+                    <div class="card-body">
+                        @foreach (var tag in Model.Tags)
+                        {
+                            <span class="badge bg-secondary text-dark me-2 mb-2">@tag.Name</span>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">No tags available.</div>
+            }
+        </div>
+    </div>
+
+    <h3 class="h4">Comments</h3>
+    @if (Model.Comments != null && Model.Comments.Any())
+    {
+        <div class="list-group">
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="list-group-item flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@comment.User.UserName</h5>
+                        <small class="text-muted">@comment.DateCreated.ToString("yyyy-MM-dd HH:mm")</small>
+                    </div>
+                    <p class="mb-1">@comment.Text</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">No comments available.</div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="mt-4">
+            <h3 class="h4">Leave a Comment</h3>
+            <form asp-action="AddComment" asp-controller="User" asp-route-id="@Model.Id" method="post">
+                <div class="mb-3">
+                    <label for="commentText" class="form-label">Comment</label>
+                    <textarea class="form-control" id="commentText" name="Text" rows="3" required></textarea>
+                </div>
+                <input type="hidden" name="ItemId" value="@Model.Id" />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">Please <a asp-controller="Account" asp-action="Login">log in</a> to leave a comment.</div>
+    }
+</div>
+
+<style>
+    .badge {
+        font-size: 0.9rem;
+    }
+</style>

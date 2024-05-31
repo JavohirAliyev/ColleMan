@@ -9,7 +9,7 @@
 }
 <h2>Items</h2>
 <div class="mb-3 ">
-    @if ((await userManager.GetUserAsync(User)).Id == Model.User.Id)
+    @if ((await userManager.GetUserAsync(User)) == Model.User)
     {
         <a asp-action="CreateItem" asp-controller="User" class="btn btn-success">
             <i class="material-icons me-1">&#xe147;</i>
@@ -56,14 +56,14 @@
                         <td>
                             @if (!User.Identity.IsAuthenticated)
                             {
-                                <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                                <a asp-action="GetItem" asp-controller="User" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
                             }
                             else if (User.IsInRole("Admin") || (await userManager.GetUserAsync(User)).Id == item.Collection.User?.Id)
                             {
-                                <a asp-action="EditItem" asp-route-id="@item.Id" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
-                                <a asp-action="ViewItem" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
-                                <form asp-action="DeleteItem" asp-route-id="@item.Id" method="post" class="d-inline">
-                                    <button type="submit" class="btn btn-danger btn-sm mb-1">Delete</button>
+                                <a @* asp-action="EditItem" asp-route-id="@item.Id" *@ href="#" class="btn btn-warning btn-sm me-1 mb-1">Edit</a>
+                                <a asp-action="GetItem" asp-controller="User" asp-route-id="@item.Id" class="btn btn-info btn-sm me-1 mb-1">View</a>
+                                <form asp-action="DeleteItem" asp-controller="User" asp-route-id="@item.Id" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm mb-1 delete-btn">Delete</button>
                                 </form>
                             }
                         </td>
@@ -95,7 +95,7 @@
                 } else if (result.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire(
                         'Cancelled',
-                        'Your collection is safe :)',
+                        'Your item is safe :)',
                         'error'
                     );
                 }

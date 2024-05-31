@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Common;
 
 namespace ColleMan.Controllers
 {
@@ -24,6 +25,7 @@ namespace ColleMan.Controllers
             _dbContext = databaseContext;
             _cloud = cloud;
         }
+        public static int collectionIdItemCreate;
         public IActionResult Index()
         {
             return View();
@@ -32,14 +34,12 @@ namespace ColleMan.Controllers
         [Route("User/GetCollections/{userId}")]
         public async Task<IActionResult> GetCollections(string userId)
         {
-            var collectionOwner = await _userManager.FindByIdAsync(userId);
+            var collectionOwner = await _userManager.Users
+                .Include(c => c.Collections)
+                .FirstOrDefaultAsync(c => c.Id == userId);
             if (collectionOwner == null)
                 return NotFound();
-            var userCollections = _dbContext.Collections
-                .Include(c => c.User)
-                .Where(c => c.User.Id == collectionOwner.Id)
-                .ToList();
-            return View(userCollections);
+            return View(collectionOwner);
         }
         [Authorize]
         public IActionResult CreateCollectionView()
@@ -174,10 +174,40 @@ namespace ColleMan.Controllers
         [Route("User/GetItems/{collId}")]
         public IActionResult GetItems(int collId)
         {
+            collectionIdItemCreate = collId;
             var coll = _dbContext.Collections
-                .Include(_ => _.User)
+                .Include(c => c.User)
+                .Include(c => c.Items)
+                .ThenInclude(x => x.Tags)
                 .FirstOrDefault(c => c.Id == collId);
             return View(coll);
+        }
+
+        [Route("User/GetItem/{id}")]
+        public async Task<IActionResult> GetItem(int id)
+        {
+            var item = await _dbContext.Items
+                .Include(i => i.Tags)
+                .Include(i => i.Comments)
+                .ThenInclude(i => i.User)
+                .FirstOrDefaultAsync(i => i.Id == id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new ItemViewModel
+            {
+                Id = item.Id,
+                Name = item.Name,
+                Tags = item.Tags.ToList(),
+                DateCreated = item.DateCreated,
+                LikeCount = item.LikeCount,
+                Comments = item.Comments?.ToList() ?? new List<Comment>()
+            };
+
+            return View(viewModel);
         }
 
         [Authorize]
@@ -212,12 +242,11 @@ namespace ColleMan.Controllers
         }
         [Authorize]
         [HttpPost]
-        [Route("User/CreateItem/{collectionId}")]
-        public async Task<IActionResult> CreateItem(int collectionId, CreateItemViewModel civm)
+        public async Task<IActionResult> CreateItem(CreateItemViewModel civm)
         {
             Collection? col = await _dbContext.Collections
                 .Include(c => c.User)
-                .FirstOrDefaultAsync(x => x.Id == collectionId);
+                .FirstOrDefaultAsync(x => x.Id == collectionIdItemCreate);
             ApplicationUser collectionOwner = col.User;
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
             if (col == null)
@@ -235,17 +264,29 @@ namespace ColleMan.Controllers
                 }
                 else
                 {
-                    var item = new Item
+                    if (String.IsNullOrEmpty(civm.Name) || String.IsNullOrEmpty(civm.Tags))
                     {
-                        Name = civm.Name,
-                        Tags = civm.Tags,
-                        Collection = col,
-                        DateCreated = DateTime.Now,
-                    };
-                    await _dbContext.Items.AddAsync(item);
-                    _dbContext.SaveChanges();
-                    await _userManager.UpdateAsync(await _userManager.GetUserAsync(User));
-                    return RedirectToAction("GetItems", "User", new {col.Id});
+                        ModelState.AddModelError(String.Empty, "Name OR Tags cannot be empty");
+                        return View(civm);
+                    }
+                    else
+                    {
+                        var tagList = civm.Tags.Split(',')
+                          .Select(tag => new Tag { Name = tag.Trim() })
+                          .ToList();
+
+                        var item = new Item
+                        {
+                            Name = civm.Name,
+                            Tags = tagList,
+                            Collection = col,
+                            DateCreated = DateTime.Now,
+                        };
+                        await _dbContext.Items.AddAsync(item);
+                        _dbContext.SaveChanges();
+                        await _userManager.UpdateAsync(await _userManager.GetUserAsync(User));
+                        return RedirectToAction("GetItems", "User", new {col.Id});
+                    }
                 }
             }
             else
@@ -254,5 +295,44 @@ namespace ColleMan.Controllers
                 return View(civm);
             }
         }
+
+        [Route("User/DeleteItem/{itemId}")]
+        public async Task<IActionResult> DeleteItem(int itemId)
+        {
+            var selectedItem = await _dbContext.Items
+           .Include(c => c.Collection)
+           .FirstOrDefaultAsync(c => c.Id == itemId);
+            if (selectedItem != null)
+            {
+                var coll = selectedItem.Collection;
+                if (!User.IsInRole("Admin") && (await _userManager.GetUserAsync(User)) != selectedItem.Collection.User)
+                    return RedirectToPage("~/AccessDenied.aspx");
+                else if (selectedItem != null)
+                {
+                    _dbContext.Items.Remove(selectedItem);
+                    await _dbContext.SaveChangesAsync();
+                    return RedirectToAction("GetItems", "User", new { coll.Id });
+                }
+                ModelState.AddModelError("Id", "There was a problem with deleting the record!");
+                return RedirectToAction("GetItems", "User", new { coll.Id });
+            }
+            ModelState.AddModelError("Id", "There is no item under this ID!");
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [Authorize]
+        [Route("User/AddComment/{itemId}")]
+        public async Task<IActionResult> AddCommentAsync(int itemId, Comment comment)
+        {
+            var selectedItem = await _dbContext.Items.FirstOrDefaultAsync(c => c.Id == itemId);
+            comment.DateCreated = DateTime.Now;
+            comment.Item = selectedItem;
+            comment.User = await _userManager.GetUserAsync(User);
+            await _dbContext.Comments.AddAsync(comment);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToAction("GetItem", "User", new { selectedItem.Id });
+        }
+       
     }
 }

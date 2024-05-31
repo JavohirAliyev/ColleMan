@@ -11,14 +11,39 @@ namespace ColleMan.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DatabaseContext _databaseContext;
+        public HomeController(ILogger<HomeController> logger, DatabaseContext databaseContext)
         {
             _logger = logger;
+            _databaseContext = databaseContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var recentItems = await _databaseContext.Items
+            .OrderByDescending(i => i.DateCreated)
+            .Take(5)
+            .ToListAsync();
+
+            var largestCollections = await _databaseContext.Collections
+                .Include(c => c.Items)
+                .OrderByDescending(c => c.Items.Count)
+                .Take(5)
+                .ToListAsync();
+
+            var allTags = await _databaseContext.Tags
+                .Select(t => t.Name)
+                .Distinct()
+                .ToListAsync();
+
+            var viewModel = new HomeViewModel
+            {
+                RecentItems = recentItems,
+                LargestCollections = largestCollections,
+                AllTags = allTags
+            };
+
+            return View(viewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
