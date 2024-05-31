@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj": {}
+    "D:\\Itransition\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj": {
+    "D:\\Itransition\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj",
+        "projectUniqueName": "D:\\Itransition\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj",
         "projectName": "ColleMan",
-        "projectPath": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj",
+        "projectPath": "D:\\Itransition\\ColleMan\\ColleMan\\ColleMan\\ColleMan.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\ColleMan\\ColleMan\\ColleMan\\obj\\",
+        "outputPath": "D:\\Itransition\\ColleMan\\ColleMan\\ColleMan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -17,95 +17,95 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ColleMan
 build_property.RootNamespace = ColleMan
-build_property.ProjectDir = C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan\
+build_property.ProjectDir = D:\Itransition\ColleMan\ColleMan\ColleMan\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\ColleMan\ColleMan\ColleMan
+build_property.MSBuildProjectDirectory = D:\Itransition\ColleMan\ColleMan\ColleMan
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Admin/AdminPanel.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Admin/AdminPanel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5QYW5lbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Home/Index.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Shared/Error.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Shared/_LoginPartial.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/CreateCollection.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/CreateCollection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVDb2xsZWN0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/CreateItem.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/CreateItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/EditCollection.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/EditCollection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0Q29sbGVjdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/GetCollections.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/GetCollections.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRDb2xsZWN0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/GetItem.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/GetItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRJdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/User/GetItems.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/User/GetItems.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRJdGVtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/_ViewImports.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/_ViewStart.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/User/Desktop/ColleMan/ColleMan/ColleMan/Views/Shared/_Layout.cshtml]
+[D:/Itransition/ColleMan/ColleMan/ColleMan/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xkz6y680f6
